@@ -1,0 +1,27 @@
+[help]
+	autocorrect = 1
+[user]
+	# Note for the Next Dev: Please change this info!
+	# No need to blame someone else!
+	name = Atef Ben Ali
+	email = atef.bettaib@gmail.com
+[http]
+	sslVerify = true
+	sslCAinfo = /etc/ssl/certs/ca-certificates.crt
+[core]
+	pager = diff-so-fancy | less --tabs=4 -RFX
+	filemode = false
+[color]
+	ui = true
+[color "diff-highlight"]
+	oldNormal = red bold
+	oldHighlight = red bold 52
+	newNormal = green bold
+	newHighlight = green bold 22
+[color "diff"]
+	meta = yellow
+	frag = magenta bold
+	commit = yellow bold
+	old = red bold
+	new = green bold
+	whitespace = red reverse
