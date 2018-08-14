@@ -24,6 +24,9 @@ alias ls='ls -al --color'
 
 alias grep='grep --color=tty'
 
+# Laravel artisan
+alias pa='php artisan'
+
 source ~/.bashrc
 
 # Load in the git branch prompt script.
