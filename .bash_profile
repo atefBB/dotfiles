@@ -19,6 +19,7 @@ alias gsh='git show'
 alias grc='git recap'
 alias gall='git add .'
 alias ga='git add'
+alias gcl='git clean -df'
 
 alias ls='ls -al --color'
 
