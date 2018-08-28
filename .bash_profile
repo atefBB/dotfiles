@@ -3,6 +3,7 @@ alias gloga='git log --oneline --decorate --graph --all'
 alias glog='git log --oneline --decorate --graph'
 alias gpl='git pull'
 alias gs='git status'
+alias gst='git stash'
 alias gp='git push'
 alias gpf='git push -f'
 alias gf='git fetch'
@@ -18,10 +19,14 @@ alias gsh='git show'
 alias grc='git recap'
 alias gall='git add .'
 alias ga='git add'
+alias gcl='git clean -df'
 
 alias ls='ls -al --color'
 
 alias grep='grep --color=tty'
+
+# Laravel artisan
+alias pa='php artisan'
 
 source ~/.bashrc
 
