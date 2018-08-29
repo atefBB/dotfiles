@@ -1,5 +1,7 @@
 [help]
 	autocorrect = 1
+[alias]
+	recap = log --since="00:00:00" --no-merges --oneline
 [user]
 	# Note for the Next Dev: Please change this info!
 	# No need to blame someone else!
