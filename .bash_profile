@@ -1,4 +1,4 @@
-## git alias
+# Git alias
 alias gloga='git log --oneline --decorate --graph --all'
 alias glog='git log --oneline --decorate --graph'
 alias gpl='git pull'
