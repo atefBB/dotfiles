@@ -29,6 +29,10 @@ alias grep='grep --color=tty'
 # Laravel artisan
 alias pa='php artisan'
 
+# Docker 
+alias dps='docker ps'
+alias dls='docker container ls -a'
+
 source ~/.bashrc
 
 # Load in the git branch prompt script.
