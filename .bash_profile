@@ -39,6 +39,8 @@ alias cpr='composer require'
 # Docker 
 alias dps='docker ps'
 alias dls='docker container ls -a'
+alias dst='docker start'
+alias dstp='docker stop'
 
 source ~/.bashrc
 
