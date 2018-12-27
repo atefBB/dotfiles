@@ -3,16 +3,12 @@
 [alias]
 	recap = log --since="00:00:00" --no-merges --oneline
 [user]
-	# Note for the Next Dev: Please change this info!
-	# No need to blame someone else!
+    # Note for the Next Dev: Please change this info!
+    # No need to blame someone else!
 	name = Atef Ben Ali
 	email = atef.bettaib@gmail.com
-[http]
-	sslVerify = true
-	sslCAinfo = /etc/ssl/certs/ca-certificates.crt
 [core]
-	pager = diff-so-fancy | less --tabs=4 -RFX
-	filemode = false
+	pager = ~/diff-so-fancy | less --tabs=4 -RFX
 	autocrlf = true
 [color]
 	ui = true
@@ -28,3 +24,7 @@
 	old = red bold
 	new = green bold
 	whitespace = red reverse
+[diff-so-fancy]
+	markEmptyLines = false
+[gc]
+	auto = 0
