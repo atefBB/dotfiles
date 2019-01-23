@@ -21,7 +21,7 @@ alias grc='git recap'
 alias gall='git add .'
 alias ga='git add'
 alias gcl='git clean -df'
-alias grlg='git reflog'
+alias grlog='git reflog'
 
 alias ls='ls -al --color'
 
