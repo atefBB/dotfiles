@@ -2,4 +2,4 @@
 
 My dotfiles
 
-Inspired by https://github.com/lyrixx/dotfiles.
+Inspired by `Grégoire Pineau` [dotfiles](https://github.com/lyrixx/dotfiles).
