@@ -2,6 +2,18 @@
 	autocorrect = 1
 [alias]
 	recap = log --since="00:00:00" --no-merges --oneline
+	last = log -1 --stat
+	cp = cherry-pick
+	co = checkout
+	cl = clone
+	ci = commit
+	st = status -sb
+	br = branch
+	unstage = reset HEAD --
+	dc = diff --cached
+	quick-stats = ! /usr/local/bin/git-quick-stats
+	ignore = "!gi() { curl -L -s https://www.gitignore.io/api/$@ ;}; gi"
+	lg = log --graph --decorate --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %Cgreen(%cr) %C(bold blue)<%an>%Creset %s' --abbrev-commit
 [user]
     # Note for the Next Dev: Please change this info!
     # No need to blame someone else!
