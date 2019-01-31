@@ -13,7 +13,7 @@
 	dc = diff --cached
 	quick-stats = ! /usr/local/bin/git-quick-stats
 	ignore = "!gi() { curl -L -s https://www.gitignore.io/api/$@ ;}; gi"
-	lg = log --graph --decorate --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %Cgreen(%cr) %C(bold blue)<%an>%Creset %s' --abbrev-commit
+	lg = log --graph --decorate --all --pretty=format:'%C(yellow)%h%Creset -%C(red)%d%Creset %Cgreen(%cr) %C(bold blue)<%an>%Creset %s' --abbrev-commit
 [user]
         # Note for the Next Dev: Please change this info!
         # No need to blame someone else!
