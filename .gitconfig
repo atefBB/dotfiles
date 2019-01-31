@@ -15,8 +15,8 @@
 	ignore = "!gi() { curl -L -s https://www.gitignore.io/api/$@ ;}; gi"
 	lg = log --graph --decorate --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %Cgreen(%cr) %C(bold blue)<%an>%Creset %s' --abbrev-commit
 [user]
-    # Note for the Next Dev: Please change this info!
-    # No need to blame someone else!
+        # Note for the Next Dev: Please change this info!
+        # No need to blame someone else!
 	name = Atef Ben Ali
 	email = atef.bettaib@gmail.com
 [core]
