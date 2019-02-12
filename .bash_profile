@@ -2,6 +2,7 @@
 alias gapp='git apply'
 alias gloga='git log --oneline --decorate --graph --all'
 alias glog='git log --oneline --decorate --graph'
+alias gln='git log --oneline --decorate --graph --name-status'
 alias gpl='git pull'
 alias gs='git status'
 alias gst='git stash'
