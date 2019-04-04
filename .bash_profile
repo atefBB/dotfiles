@@ -21,6 +21,7 @@ alias gsh='git show'
 alias grc='git recap'
 alias gall='git add .'
 alias ga='git add'
+alias gap='git add -p'
 alias gcl='git clean -df'
 alias grlog='git reflog'
 
