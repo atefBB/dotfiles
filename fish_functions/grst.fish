@@ -1,3 +1,3 @@
 function grst
-	git reset
+	git reset $argv
 end
