@@ -14,4 +14,5 @@ Plug 'ncm2/ncm2-bufword'
 Plug 'ncm2/ncm2-path'
 Plug 'neomake/neomake'
 Plug 'adoy/vim-php-refactoring-toolbox'
+Plug 'preservim/nerdtree'
 call plug#end()
