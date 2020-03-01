@@ -13,4 +13,5 @@ set completeopt=noinsert,menuone,noselect
 Plug 'ncm2/ncm2-bufword'
 Plug 'ncm2/ncm2-path'
 Plug 'neomake/neomake'
+Plug 'adoy/vim-php-refactoring-toolbox'
 call plug#end()
