@@ -13,4 +13,5 @@ Plug 'neomake/neomake'
 Plug 'adoy/vim-php-refactoring-toolbox'
 Plug 'preservim/nerdtree'
 Plug 'sheerun/vim-polyglot'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
