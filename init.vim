@@ -5,6 +5,7 @@ set ff=unix
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 let g:javascript_plugin_jsdoc = 1
+let NERDTreeShowHidden=1
 call plug#begin('~/nvim/plugged')
 Plug 'tpope/vim-fugitive'
 Plug 'mhinz/vim-startify'
