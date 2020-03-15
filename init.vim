@@ -15,4 +15,5 @@ Plug 'adoy/vim-php-refactoring-toolbox'
 Plug 'preservim/nerdtree'
 Plug 'sheerun/vim-polyglot'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'terryma/vim-multiple-cursors'
 call plug#end()
