@@ -6,6 +6,9 @@ autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 let g:javascript_plugin_jsdoc = 1
 let NERDTreeShowHidden=1
+"let g:polyglot_disabled = ['javascript']
+let g:rainbow_active = 1
+let g:auto_save = 1  " enable AutoSave on Vim startup
 call plug#begin('~/nvim/plugged')
 Plug 'tpope/vim-fugitive'
 Plug 'mhinz/vim-startify'
@@ -20,4 +23,7 @@ Plug 'prettier/vim-prettier', {
   \ 'do': 'yarn install',
   \ 'branch': 'release/0.x'
   \ }
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'frazrepo/vim-rainbow'
+Plug 'vim-scripts/vim-auto-save'
 call plug#end()
