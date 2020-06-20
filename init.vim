@@ -31,4 +31,5 @@ Plug 'sbdchd/neoformat'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'frazrepo/vim-rainbow'
 Plug 'vim-scripts/vim-auto-save'
+Plug 'itchyny/lightline.vim'
 call plug#end()
