@@ -1,3 +1,3 @@
-function dcp
+function dkcp
 	docker-compose $argv
 end
