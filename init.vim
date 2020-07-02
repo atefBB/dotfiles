@@ -20,16 +20,14 @@ Plug 'StanAngeloff/php.vim'
 Plug 'neomake/neomake'
 Plug 'adoy/vim-php-refactoring-toolbox'
 Plug 'preservim/nerdtree'
-"Plug 'sheerun/vim-polyglot'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'terryma/vim-multiple-cursors'
-"Plug 'prettier/vim-prettier', {
-"  \ 'do': 'yarn install',
-"  \ 'branch': 'release/0.x'
-"  \ }
 Plug 'sbdchd/neoformat'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'frazrepo/vim-rainbow'
 Plug 'vim-scripts/vim-auto-save'
 Plug 'itchyny/lightline.vim'
+Plug 'https://github.com/stephpy/vim-php-cs-fixer'
+Plug 'https://github.com/moll/vim-bbye.git'
+Plug 'dense-analysis/ale'
 call plug#end()
