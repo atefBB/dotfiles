@@ -1,3 +1,3 @@
 function gftp
-	git ftp -v push $argv
+	git ftp $argv
 end
