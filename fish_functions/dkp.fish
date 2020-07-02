@@ -1,3 +1,3 @@
-function dp
+function dkp
 	docker ps $argv
 end
