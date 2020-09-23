@@ -6,13 +6,14 @@ autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 let g:javascript_plugin_jsdoc = 1
 let NERDTreeShowHidden=1
-"let g:polyglot_disabled = ['javascript']
 let g:rainbow_active = 1
 let g:auto_save = 1  " enable AutoSave on Vim startup
-augroup fmt
-  autocmd!
-  autocmd BufWritePre * undojoin | Neoformat
-augroup END
+" Auto format `on save` with `Neoformat`
+" augroup fmt
+"   autocmd!
+"   autocmd BufWritePre * undojoin | Neoformat
+" augroup END
+" autocmd BufWritePost *.php silent! call PhpCsFixerFixFile()
 call plug#begin('~/nvim/plugged')
 Plug 'tpope/vim-fugitive'
 Plug 'mhinz/vim-startify'
