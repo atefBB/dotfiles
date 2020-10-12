@@ -13,7 +13,13 @@ let g:auto_save = 1  " enable AutoSave on Vim startup
 "   autocmd!
 "   autocmd BufWritePre * undojoin | Neoformat
 " augroup END
-" autocmd BufWritePost *.php silent! call PhpCsFixerFixFile()
+" Default values for conflict marker
+let g:conflict_marker_begin = '^<<<<<<< \@='
+let g:conflict_marker_common_ancestors = '^||||||| .*$'
+let g:conflict_marker_separator = '^=======$'
+let g:conflict_marker_end   = '^>>>>>>> \@='
+" Indenting in ts files
+let g:typescript_indent_disable = 1
 call plug#begin('~/nvim/plugged')
 Plug 'tpope/vim-fugitive'
 Plug 'mhinz/vim-startify'
@@ -31,4 +37,8 @@ Plug 'itchyny/lightline.vim'
 Plug 'https://github.com/stephpy/vim-php-cs-fixer'
 Plug 'https://github.com/moll/vim-bbye.git'
 Plug 'dense-analysis/ale'
+Plug 'rhysd/conflict-marker.vim'
+Plug 'leafgarland/typescript-vim'
+Plug 'maxmellon/vim-jsx-pretty'
+Plug 'HerringtonDarkholme/yats.vim'
 call plug#end()
