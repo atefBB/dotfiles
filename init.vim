@@ -42,4 +42,12 @@ Plug 'rhysd/conflict-marker.vim'
 Plug 'leafgarland/typescript-vim'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'HerringtonDarkholme/yats.vim'
+Plug 'dracula/vim'
 call plug#end()
+if (has("termguicolors"))
+ set termguicolors
+endif
+syntax enable
+colorscheme dracula
+set guifont=JetBrainsMono\ Nerd\ Font\ 11
+
