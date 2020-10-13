@@ -21,6 +21,7 @@ let g:conflict_marker_end   = '^>>>>>>> \@='
 " Indenting in ts files
 let g:typescript_indent_disable = 1
 call plug#begin('~/nvim/plugged')
+Plug 'ryanoasis/vim-devicons'
 Plug 'tpope/vim-fugitive'
 Plug 'mhinz/vim-startify'
 Plug 'StanAngeloff/php.vim'
