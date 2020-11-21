@@ -52,3 +52,4 @@ syntax enable
 colorscheme dracula
 set guifont=JetBrainsMono\ Nerd\ Font\ 11
 
+nnoremap nte :FloatermNew note<CR>
