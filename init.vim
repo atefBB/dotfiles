@@ -43,6 +43,7 @@ Plug 'leafgarland/typescript-vim'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'dracula/vim'
+Plug 'voldikss/vim-floaterm'
 call plug#end()
 if (has("termguicolors"))
  set termguicolors
