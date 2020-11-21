@@ -1,0 +1,13 @@
+#!/bin/sh
+
+notFilename="$HOME/notes/note-$(date +%Y-%m-%d).md"
+
+if [ ! -f $notFilename ]; then
+	echo "# Note for $(date +%Y-%m-%d)" > $notFilename
+fi
+
+nvim -c "norm Go" \
+  -c "norm Go## Note at $(date +%H:%M)" \
+  -c "norm G2o" \
+  -c "norm zz" \
+  -c "startinsert" $notFilename
