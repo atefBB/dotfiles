@@ -34,4 +34,8 @@ Plug 'voldikss/vim-floaterm'
 call plug#end()
 set guifont=JetBrainsMono\ Nerd\ Font\ 11
 
+" `Taking note in floaterm` mapping
 nnoremap nte :FloatermNew note<CR>
+nnoremap   <silent>   <F7>    :FloatermNew<CR>
+
+nnoremap ,df :ALEGoToDefinition<CR>
