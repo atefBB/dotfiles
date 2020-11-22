@@ -15,6 +15,8 @@ let g:conflict_marker_separator = '^=======$'
 let g:conflict_marker_end   = '^>>>>>>> \@='
 " Indenting in ts files
 let g:typescript_indent_disable = 1
+let g:coc_global_extensions = ['coc-tsserver']
+set encoding=utf8
 call plug#begin('~/nvim/plugged')
 Plug 'ryanoasis/vim-devicons'
 Plug 'preservim/nerdtree'
@@ -33,6 +35,7 @@ Plug 'dracula/vim'
 Plug 'voldikss/vim-floaterm'
 call plug#end()
 set guifont=JetBrainsMono\ Nerd\ Font\ 11
+au BufEnter * if &buftype == 'terminal' | :startinsert | endif
 
 " `Taking note in floaterm` mapping
 nnoremap nte :FloatermNew note<CR>
