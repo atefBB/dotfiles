@@ -47,6 +47,7 @@ Plug 'maxmellon/vim-jsx-pretty'
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'dracula/vim'
 Plug 'voldikss/vim-floaterm'
+Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 call plug#end()
 
 " ** Keys Mapping **
