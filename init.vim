@@ -1,22 +1,36 @@
+" ** Settings **
 set runtimepath^=~/.vim runtimepath+=~/.vim/after
 let &packpath = &runtimepath
 source ~/.vimrc
 set ff=unix
+
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
 let g:javascript_plugin_jsdoc = 1
 let NERDTreeShowHidden=1
 let g:rainbow_active = 1
-let g:auto_save = 1  " enable AutoSave on Vim startup
+
+" Enable AutoSave on Vim startup
+let g:auto_save = 1  
+
 " Default values for conflict marker
 let g:conflict_marker_begin = '^<<<<<<< \@='
 let g:conflict_marker_common_ancestors = '^||||||| .*$'
 let g:conflict_marker_separator = '^=======$'
 let g:conflict_marker_end   = '^>>>>>>> \@='
+
 " Indenting in ts files
 let g:typescript_indent_disable = 1
 let g:coc_global_extensions = ['coc-tsserver']
+
 set encoding=utf8
+set guifont=JetBrainsMono\ Nerd\ Font\ 11
+
+" Open the terminal in `insert mode`
+au BufEnter * if &buftype == 'terminal' | :startinsert | endif
+
+" ** Plugins **
 call plug#begin('~/nvim/plugged')
 Plug 'ryanoasis/vim-devicons'
 Plug 'preservim/nerdtree'
@@ -34,11 +48,9 @@ Plug 'HerringtonDarkholme/yats.vim'
 Plug 'dracula/vim'
 Plug 'voldikss/vim-floaterm'
 call plug#end()
-set guifont=JetBrainsMono\ Nerd\ Font\ 11
-au BufEnter * if &buftype == 'terminal' | :startinsert | endif
 
+" ** Keys Mapping **
 " `Taking note in floaterm` mapping
-nnoremap nte :FloatermNew note<CR>
 nnoremap   <silent>   <F7>    :FloatermNew<CR>
-
+nnoremap nte :FloatermNew note<CR>
 nnoremap ,df :ALEGoToDefinition<CR>
