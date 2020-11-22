@@ -8,11 +8,6 @@ let g:javascript_plugin_jsdoc = 1
 let NERDTreeShowHidden=1
 let g:rainbow_active = 1
 let g:auto_save = 1  " enable AutoSave on Vim startup
-" Auto format `on save` with `Neoformat`
-" augroup fmt
-"   autocmd!
-"   autocmd BufWritePre * undojoin | Neoformat
-" augroup END
 " Default values for conflict marker
 let g:conflict_marker_begin = '^<<<<<<< \@='
 let g:conflict_marker_common_ancestors = '^||||||| .*$'
@@ -22,21 +17,13 @@ let g:conflict_marker_end   = '^>>>>>>> \@='
 let g:typescript_indent_disable = 1
 call plug#begin('~/nvim/plugged')
 Plug 'ryanoasis/vim-devicons'
-Plug 'tpope/vim-fugitive'
-Plug 'mhinz/vim-startify'
-Plug 'StanAngeloff/php.vim'
-Plug 'neomake/neomake'
-Plug 'adoy/vim-php-refactoring-toolbox'
 Plug 'preservim/nerdtree'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'terryma/vim-multiple-cursors'
 Plug 'sbdchd/neoformat'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'frazrepo/vim-rainbow'
 Plug 'vim-scripts/vim-auto-save'
 Plug 'itchyny/lightline.vim'
-Plug 'https://github.com/stephpy/vim-php-cs-fixer'
-Plug 'https://github.com/moll/vim-bbye.git'
 Plug 'dense-analysis/ale'
 Plug 'rhysd/conflict-marker.vim'
 Plug 'leafgarland/typescript-vim'
@@ -45,11 +32,6 @@ Plug 'HerringtonDarkholme/yats.vim'
 Plug 'dracula/vim'
 Plug 'voldikss/vim-floaterm'
 call plug#end()
-if (has("termguicolors"))
- set termguicolors
-endif
-syntax enable
-colorscheme dracula
 set guifont=JetBrainsMono\ Nerd\ Font\ 11
 
 nnoremap nte :FloatermNew note<CR>
