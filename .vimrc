@@ -135,3 +135,8 @@ set autoread
 
 " Read from a HTML skeleton file and paste it in the current cursor position
 nnoremap ,htm :-read $HOME/.vim/.skeleton.html<CR>3jwf>a
+
+" mapping `Escape` key to exit `terminal` insert mode
+if has('nvim')
+   tnoremap <Esc> <C-\><C-n>
+endif
