@@ -25,7 +25,14 @@ let g:conflict_marker_end   = '^>>>>>>> \@='
 let g:typescript_indent_disable = 1
 let g:coc_global_extensions = ['coc-tsserver']
 
+" Enables blamer on startup
+let g:blamer_enabled = 1
+
+" The delay in milliseconds for the `git` blame message to show
+let g:blamer_delay = 500
+
 set encoding=utf8
+
 set guifont=JetBrainsMono\ Nerd\ Font\ 11
 
 " Open the terminal in `insert mode`
@@ -49,6 +56,7 @@ Plug 'HerringtonDarkholme/yats.vim'
 Plug 'dracula/vim'
 Plug 'voldikss/vim-floaterm'
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
+Plug 'APZelos/blamer.nvim'
 call plug#end()
 
 " ** Keys Mapping **
