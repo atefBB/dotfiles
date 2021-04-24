@@ -38,6 +38,14 @@ set guifont=JetBrainsMono\ Nerd\ Font\ 11
 " Open the terminal in `insert mode`
 au BufEnter * if &buftype == 'terminal' | :startinsert | endif
 
+" automatically run `import cost` plugin on buffer updates
+augroup import_cost_auto_run
+  autocmd!
+  autocmd InsertLeave *.js,*.jsx,*.ts,*.tsx ImportCost
+  autocmd BufEnter *.js,*.jsx,*.ts,*.tsx ImportCost
+  autocmd CursorHold *.js,*.jsx,*.ts,*.tsx ImportCost
+augroup END
+
 " ** Plugins **
 call plug#begin('~/nvim/plugged')
 Plug 'ryanoasis/vim-devicons'
@@ -57,6 +65,7 @@ Plug 'dracula/vim'
 Plug 'voldikss/vim-floaterm'
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'APZelos/blamer.nvim'
+Plug 'yardnsm/vim-import-cost', { 'do': 'yarn install' }
 call plug#end()
 
 " ** Keys Mapping **
