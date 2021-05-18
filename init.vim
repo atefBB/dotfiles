@@ -46,6 +46,12 @@ augroup import_cost_auto_run
   autocmd CursorHold *.js,*.jsx,*.ts,*.tsx ImportCost
 augroup END
 
+" format on save
+augroup neo_format
+  autocmd!
+  autocmd BufWritePre * undojoin | Neoformat
+augroup END
+
 " ** Plugins **
 call plug#begin('~/nvim/plugged')
 Plug 'ryanoasis/vim-devicons'
