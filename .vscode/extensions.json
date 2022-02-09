@@ -7,6 +7,7 @@
         "nicoespeon.abracadabra",
         "pkief.material-icon-theme",
         "letrieu.expand-region",
-        "ms-vscode.sublime-keybindings"
+        "ms-vscode.sublime-keybindings",
+        "streetsidesoftware.code-spell-checker"
     ]
 }
