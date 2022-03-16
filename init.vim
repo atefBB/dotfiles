@@ -9,6 +9,7 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 let g:javascript_plugin_jsdoc = 1
 let NERDTreeShowHidden=1
+" Don't show `node_modules` & `.git`  folders
 let g:NERDTreeIgnore = ['^node_modules$', '^.git$']
 let g:rainbow_active = 1
 
