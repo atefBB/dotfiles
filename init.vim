@@ -53,6 +53,23 @@ augroup neo_format
   autocmd BufWritePre * undojoin | Neoformat
 augroup END
 
+" The next 4 lines of config are stollen from `jess archer` nvim config file
+" Show me tabs/spaces
+set list
+set listchars=tab:▸\ ,trail:·
+
+" Enable use of mouse in all modes with a supported terminal"
+set mouse=a
+
+" Highlight the line that the cursor is on
+set cursorline
+
+" Start vertically scrolling when 3 lines from the top or bottom
+set scrolloff=8
+
+" Start horizontally scrolling when 3 lines from the edges
+set sidescrolloff=8
+
 " ** Plugins **
 call plug#begin('~/nvim/plugged')
 Plug 'ryanoasis/vim-devicons'
