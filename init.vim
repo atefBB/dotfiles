@@ -90,6 +90,7 @@ Plug 'voldikss/vim-floaterm'
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'APZelos/blamer.nvim'
 Plug 'yardnsm/vim-import-cost', { 'do': 'yarn install' }
+Plug 'tpope/vim-commentary'
 call plug#end()
 
 " ** Keys Mapping **
