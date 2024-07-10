@@ -13,9 +13,6 @@ let NERDTreeShowHidden=1
 let g:NERDTreeIgnore = ['^node_modules$', '^.git$']
 let g:rainbow_active = 1
 
-" Enable AutoSave on Vim startup
-let g:auto_save = 1  
-
 " Default values for conflict marker
 let g:conflict_marker_begin = '^<<<<<<< \@='
 let g:conflict_marker_common_ancestors = '^||||||| .*$'
@@ -25,12 +22,6 @@ let g:conflict_marker_end   = '^>>>>>>> \@='
 " Indenting in ts files
 let g:typescript_indent_disable = 1
 let g:coc_global_extensions = ['coc-tsserver']
-
-" Enables blamer on startup
-let g:blamer_enabled = 1
-
-" The delay in milliseconds for the `git` blame message to show
-let g:blamer_delay = 500
 
 set encoding=utf8
 
@@ -91,6 +82,10 @@ Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'APZelos/blamer.nvim'
 Plug 'yardnsm/vim-import-cost', { 'do': 'yarn install' }
 Plug 'tpope/vim-commentary'
+Plug 'dmmulroy/ts-error-translator.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.8' }
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 call plug#end()
 
 " ** Keys Mapping **
@@ -98,3 +93,8 @@ call plug#end()
 nnoremap   <silent>   <F7>    :FloatermNew<CR>
 nnoremap nte :FloatermNew note<CR>
 nnoremap ,df :ALEGoToDefinition<CR>
+" Find files using Telescope command-line sugar.
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
