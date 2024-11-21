@@ -102,3 +102,28 @@ nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+" CoC GoTo code navigation
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+" Use K to show documentation in preview window
+nnoremap <silent> K :call ShowDocumentation()<CR>
+" mapping for type ctrl-n instead of :norm after making your visual selection  
+vnoremap <C-n> :norm 
+" searching file content
+nmap <silent> gcS :<C-u>CocList -I grep<cr>
+" searching by file name
+nmap <silent> gcf :<C-u>CocList files<cr>
+
+" Ctrl + Up / Ctrl + Down to move current line up/down
+:nnoremap <C-Up> <Up>"add"ap<Up>
+:nnoremap <C-Down> "add"ap
+
+function! ShowDocumentation()
+  if CocAction('hasProvider', 'hover')
+    call CocActionAsync('doHover')
+  else 
+    call feedkeys('K', 'in')
+  endif
+endfunction
