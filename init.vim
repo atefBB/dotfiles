@@ -86,8 +86,12 @@ Plug 'dmmulroy/ts-error-translator.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.8' }
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'yaegassy/coc-blade', {'do': 'yarn install --frozen-lockfile'}
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'wincent/ferret'
 call plug#end()
-
+  
 " ** Keys Mapping **
 " `Taking note in floaterm` mapping
 nnoremap   <silent>   <F7>    :FloatermNew<CR>
