@@ -89,7 +89,7 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'yaegassy/coc-blade', {'do': 'yarn install --frozen-lockfile'}
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-Plug 'wincent/ferret'
+Plug 'brooth/far.vim'
 call plug#end()
   
 " ** Keys Mapping **
