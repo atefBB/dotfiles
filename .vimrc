@@ -140,3 +140,7 @@ nnoremap ,htm :-read $HOME/.vim/.skeleton.html<CR>3jwf>a
 if has('nvim')
    tnoremap <Esc> <C-\><C-n>
 endif
+
+" shows the full path of the current edited file in the status bar
+set laststatus=2
+set statusline+=%F
