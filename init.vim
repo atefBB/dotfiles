@@ -3,33 +3,60 @@ set runtimepath^=~/.vim runtimepath+=~/.vim/after
 let &packpath = &runtimepath
 source ~/.vimrc
 set ff=unix
-
+set statusline=%f 
+" set foldmethod=indent
+ 
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-
+  
 let g:javascript_plugin_jsdoc = 1
 let NERDTreeShowHidden=1
 " Don't show `node_modules` & `.git`  folders
 let g:NERDTreeIgnore = ['^node_modules$', '^.git$']
 let g:rainbow_active = 1
-
+  
 " Default values for conflict marker
 let g:conflict_marker_begin = '^<<<<<<< \@='
 let g:conflict_marker_common_ancestors = '^||||||| .*$'
 let g:conflict_marker_separator = '^=======$'
 let g:conflict_marker_end   = '^>>>>>>> \@='
-
+  
 " Indenting in ts files
 let g:typescript_indent_disable = 1
 let g:coc_global_extensions = ['coc-tsserver']
+" Disable ALE hover
+let g:ale_hover_to_floating_preview = 0
+let g:ale_set_balloons = 0
+  
+" Floaterm default width/height
+let g:floaterm_height = 0.95
+let g:floaterm_width = 0.8
+  
+" let g:neoformat_enabled_php = ['php-cs-fixer']
+  
+" ignored file for far.vim plugin
+set wildignore+=*/vendor/*
+set wildignore+=*/storage/*
+let g:far#ignore_files = ["vendor/*", "storage/*", ".git/*"]
+
+" Shows git branch in statusline
+let g:lightline = {
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'gitbranch#name'
+      \ },
+      \ }
 
 set encoding=utf8
-
+  
 set guifont=JetBrainsMono\ Nerd\ Font\ 11
-
+  
 " Open the terminal in `insert mode`
 au BufEnter * if &buftype == 'terminal' | :startinsert | endif
-
+  
 " automatically run `import cost` plugin on buffer updates
 augroup import_cost_auto_run
   autocmd!
@@ -37,27 +64,22 @@ augroup import_cost_auto_run
   autocmd BufEnter *.js,*.jsx,*.ts,*.tsx ImportCost
   autocmd CursorHold *.js,*.jsx,*.ts,*.tsx ImportCost
 augroup END
-
+  
 " format on save
 augroup neo_format
   autocmd!
   autocmd BufWritePre * undojoin | Neoformat
 augroup END
-
-" The next 4 lines of config are stollen from `jess archer` nvim config file
-" Show me tabs/spaces
-set list
-set listchars=tab:▸\ ,trail:·
-
+  
 " Enable use of mouse in all modes with a supported terminal"
 set mouse=a
-
+  
 " Highlight the line that the cursor is on
 set cursorline
-
+  
 " Start vertically scrolling when 3 lines from the top or bottom
 set scrolloff=8
-
+  
 " Start horizontally scrolling when 3 lines from the edges
 set sidescrolloff=8
 
@@ -112,8 +134,13 @@ nmap <silent> gcS :<C-u>CocList -I grep<cr>
 nmap <silent> gcf :<C-u>CocList files<cr>
 
 " Ctrl + Up / Ctrl + Down to move current line up/down
-:nnoremap <C-Up> <Up>"add"ap<Up>
-:nnoremap <C-Down> "add"ap
+nnoremap <C-Up> <Up>"add"ap<Up>
+nnoremap <C-Down> "add"ap
+
+" Disable ^ in Normal, Visual, and Operator-Pending modes
+nnoremap ^ <Nop>
+vnoremap ^ <Nop>
+onoremap ^ <Nop>
 
 function! ShowDocumentation()
   if CocAction('hasProvider', 'hover')
