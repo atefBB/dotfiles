@@ -67,29 +67,24 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'preservim/nerdtree'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'sbdchd/neoformat'
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'frazrepo/vim-rainbow'
 Plug 'vim-scripts/vim-auto-save'
 Plug 'itchyny/lightline.vim'
 Plug 'dense-analysis/ale'
 Plug 'rhysd/conflict-marker.vim'
-Plug 'leafgarland/typescript-vim'
 Plug 'maxmellon/vim-jsx-pretty'
-Plug 'HerringtonDarkholme/yats.vim'
 Plug 'dracula/vim'
 Plug 'voldikss/vim-floaterm'
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'APZelos/blamer.nvim'
 Plug 'yardnsm/vim-import-cost', { 'do': 'yarn install' }
 Plug 'tpope/vim-commentary'
-Plug 'dmmulroy/ts-error-translator.nvim'
-Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.8' }
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plug 'yaegassy/coc-blade', {'do': 'yarn install --frozen-lockfile'}
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-Plug 'brooth/far.vim'
+Plug 'itmammoth/doorboy.vim'
+Plug 'itchyny/vim-gitbranch'
 call plug#end()
   
 " ** Keys Mapping **
