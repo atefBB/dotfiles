@@ -1,96 +1,134 @@
-" ** Settings **
+" =========================================================
+" Basic settings
+" =========================================================
+set nocompatible
+set encoding=utf8
+set fileformats=unix,dos
+set ff=unix
+set mouse=a
+set scrolloff=8
+set sidescrolloff=8
+set statusline=%f
+
+" Prevent CRLF issues
+autocmd BufWritePre * set fileformat=unix
+
+" =========================================================
+" Runtime (keep if you still use ~/.vimrc)
+" =========================================================
 set runtimepath^=~/.vim runtimepath+=~/.vim/after
 let &packpath = &runtimepath
-source ~/.vimrc
-set ff=unix
-set statusline=%f 
-" set foldmethod=indent
- 
+if filereadable(expand("~/.vimrc"))
+  source ~/.vimrc
+endif
+
+" =========================================================
+" NERDTree
+" =========================================================
+let g:NERDTreeShowHidden=1
+let g:NERDTreeIgnore=['^node_modules$', '^\.git$']
+
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-  
-let g:javascript_plugin_jsdoc = 1
-let NERDTreeShowHidden=1
-" Don't show `node_modules` & `.git`  folders
-let g:NERDTreeIgnore = ['^node_modules$', '^.git$']
+
+" =========================================================
+" Plugins settings
+" =========================================================
 let g:rainbow_active = 1
-  
-" Default values for conflict marker
-let g:conflict_marker_begin = '^<<<<<<< \@='
-let g:conflict_marker_common_ancestors = '^||||||| .*$'
-let g:conflict_marker_separator = '^=======$'
-let g:conflict_marker_end   = '^>>>>>>> \@='
-  
-" Indenting in ts files
 let g:typescript_indent_disable = 1
-let g:coc_global_extensions = ['coc-tsserver']
-" Disable ALE hover
+
+" ALE (no LSP features)
 let g:ale_hover_to_floating_preview = 0
 let g:ale_set_balloons = 0
-  
-" Floaterm default width/height
-let g:floaterm_height = 0.95
-let g:floaterm_width = 0.8
-  
-" let g:neoformat_enabled_php = ['php-cs-fixer']
-  
-" ignored file for far.vim plugin
-set wildignore+=*/vendor/*
-set wildignore+=*/storage/*
-let g:far#ignore_files = ["vendor/*", "storage/*", ".git/*"]
 
-" Shows git branch in statusline
+" Floaterm
+let g:floaterm_height = 0.95
+let g:floaterm_width  = 0.8
+
+" =========================================================
+" PHP CS Fixer (disable Neoformat for PHP to avoid double runs)
+" =========================================================
+let g:neoformat_enabled_php = []
+let g:php_cs_fixer_path = 'php-cs-fixer'
+let g:php_cs_fixer_config = '.php-cs-fixer.php'
+let g:php_cs_fixer_rules = '@PSR12'
+let g:php_cs_fixer_allow_risky = 1
+let g:php_cs_fixer_cache = '.php-cs-fixer.cache'
+
+" prettier to format blade files
+let g:neoformat_enabled_blade = ['prettier']
+let g:neoformat_enabled_html = ['prettier']
+let g:neoformat_enabled_css = ['prettier']
+let g:neoformat_enabled_javascript = ['prettier']
+
+" `blade-formatter` should be installed on the system
+let g:neoformat_blade_bladeformatter = {
+      \ 'exe': 'blade-formatter',
+      \ 'args': ['--write', '%:p'],
+      \ 'stdin': 0,
+      \ }
+let g:neoformat_enabled_blade = ['bladeformatter']
+
+" php-cs-fixer fix on save
+autocmd BufWritePost *.php silent! !php-cs-fixer fix % 
+
+" Auto-detect Blade filetype
+autocmd BufRead,BufNewFile *.blade.php set filetype=blade
+
+" =========================================================
+" Ignore files
+" =========================================================
+set wildignore+=*/vendor/*,*/storage/*
+let g:far#ignore_files = ['vendor/*', 'storage/*', '.git/*']
+
+" =========================================================
+" Lightline (gitbranch plugin)
+" =========================================================
 let g:lightline = {
       \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \   'left': [
+      \     [ 'mode', 'paste' ],
+      \     [ 'gitbranch', 'readonly', 'filename', 'modified' ]
+      \   ]
       \ },
       \ 'component_function': {
       \   'gitbranch': 'gitbranch#name'
-      \ },
+      \ }
       \ }
 
-set encoding=utf8
-  
-set guifont=JetBrainsMono\ Nerd\ Font\ 11
-  
-" Open the terminal in `insert mode`
-au BufEnter * if &buftype == 'terminal' | :startinsert | endif
-  
-" automatically run `import cost` plugin on buffer updates
+" =========================================================
+" Terminal behavior
+" =========================================================
+autocmd TermOpen * startinsert
+
+" =========================================================
+" Import cost
+" =========================================================
 augroup import_cost_auto_run
   autocmd!
-  autocmd InsertLeave *.js,*.jsx,*.ts,*.tsx ImportCost
-  autocmd BufEnter *.js,*.jsx,*.ts,*.tsx ImportCost
-  autocmd CursorHold *.js,*.jsx,*.ts,*.tsx ImportCost
+  autocmd BufEnter,InsertLeave,CursorHold *.js,*.jsx,*.ts,*.tsx ImportCost
 augroup END
-  
-" format on save
+
+" =========================================================
+" Neoformat (exclude PHP)
+" =========================================================
 augroup neo_format
   autocmd!
-  autocmd BufWritePre * undojoin | Neoformat
+  autocmd BufWritePre *
+        \ if index(['php', 'blade'], &filetype) < 0 |
+        \   undojoin | Neoformat |
+        \ endif
 augroup END
-  
-" Enable use of mouse in all modes with a supported terminal"
-set mouse=a
-  
-" Highlight the line that the cursor is on
-set cursorline
-  
-" Start vertically scrolling when 3 lines from the top or bottom
-set scrolloff=8
-  
-" Start horizontally scrolling when 3 lines from the edges
-set sidescrolloff=8
 
-" ** Plugins **
+" =========================================================
+" Plugins
+" =========================================================
 call plug#begin('~/nvim/plugged')
 Plug 'ryanoasis/vim-devicons'
 Plug 'preservim/nerdtree'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'sbdchd/neoformat'
 Plug 'frazrepo/vim-rainbow'
-Plug 'vim-scripts/vim-auto-save'
 Plug 'itchyny/lightline.vim'
 Plug 'dense-analysis/ale'
 Plug 'rhysd/conflict-marker.vim'
@@ -101,51 +139,48 @@ Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'APZelos/blamer.nvim'
 Plug 'yardnsm/vim-import-cost', { 'do': 'yarn install' }
 Plug 'tpope/vim-commentary'
+Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.8' }
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-Plug 'itmammoth/doorboy.vim'
 Plug 'itchyny/vim-gitbranch'
+"Plug 'phpactor/phpactor', { 'do': 'composer install' }
+Plug 'stephpy/vim-php-cs-fixer'
 call plug#end()
-  
-" ** Keys Mapping **
-" `Taking note in floaterm` mapping
-nnoremap   <silent>   <F7>    :FloatermNew<CR>
-nnoremap nte :FloatermNew note<CR>
-nnoremap ,df :ALEGoToDefinition<CR>
-" Find files using Telescope command-line sugar.
+
+" =========================================================
+" Key mappings
+" =========================================================
+nnoremap <silent> <F7> :FloatermNew<CR>
+nnoremap <leader>df :ALEGoToDefinition<CR>
+
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
-" CoC GoTo code navigation
+
+" CoC navigation
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
-" Use K to show documentation in preview window
+
+" Docs
 nnoremap <silent> K :call ShowDocumentation()<CR>
-" mapping for type ctrl-n instead of :norm after making your visual selection  
-vnoremap <C-n> :norm 
-" searching file content
-nmap <silent> gcS :<C-u>CocList -I grep<cr>
-" searching by file name
-nmap <silent> gcf :<C-u>CocList files<cr>
 
-" Ctrl + Up / Ctrl + Down to move current line up/down
-nnoremap <C-Up> <Up>"add"ap<Up>
-nnoremap <C-Down> "add"ap
-
-" Disable ^ in Normal, Visual, and Operator-Pending modes
+" Disable ^
 nnoremap ^ <Nop>
 vnoremap ^ <Nop>
 onoremap ^ <Nop>
 
+" =========================================================
+" Functions
+" =========================================================
 function! ShowDocumentation()
   if CocAction('hasProvider', 'hover')
     call CocActionAsync('doHover')
-  else 
+  else
     call feedkeys('K', 'in')
   endif
 endfunction
